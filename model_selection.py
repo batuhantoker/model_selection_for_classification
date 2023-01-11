@@ -5,9 +5,19 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.svm import SVC
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
+from sklearn import model_selection
+from sklearn.linear_model import LogisticRegression
+from sklearn.svm import SVC
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.naive_bayes import GaussianNB
+from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
+from sklearn.metrics import classification_report, accuracy_score, make_scorer
+from sklearn.neural_network import MLPClassifier
+from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
 
 # Create a list of different models
-models = [LogisticRegression(), SVC(), DecisionTreeClassifier(), RandomForestClassifier()]
+#models = [LogisticRegression(), SVC(), DecisionTreeClassifier(), RandomForestClassifier()]
 
 # Load the dataset
 X = np.load('data.csv')
