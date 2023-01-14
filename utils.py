@@ -2,14 +2,19 @@ import pyspark.ml.classification
 from pyspark import SparkContext
 from pyspark.sql import SQLContext
 import tkinter as tk
-
+from pyspark.sql import SparkSession
+from pyspark.ml.evaluation import BinaryClassificationEvaluator
+from pyspark.ml.feature import VectorAssembler
+from pyspark.ml.classification import LogisticRegression
 def pySpark_func():
     global data, target, features
     global models_param
     new_root = tk.Tk()
-    sc = SparkContext().getOrCreate()
-    sqlContext = SQLContext(sc)
-
+    # sc = SparkContext().getOrCreate()
+    # sqlContext = SQLContext(sc)
+    spark = SparkSession.builder.appName("churn").getOrCreate()
+    #dataset = spark.read.csv("../datasets/customer_churn.csv", inferSchema=True, header=True)
+    data.printSchema()
     def on_select(var_list,model_list):
         global models_list
         selection = [model_list[i] for i in range(len(var_list)) if var_list[i].get()]
